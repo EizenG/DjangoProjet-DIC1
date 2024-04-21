@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block title %}Accueil{% endblock title %}
+
+{% block style %}
+    <style>
+        @media screen and (max-width:396px){
+           #headermiddle{
+                justify-content : center;
+           }
+
+           #headermiddle form input{
+                min-width : 90vw;
+           }
+        }
+    </style>       
+{% endblock style %}

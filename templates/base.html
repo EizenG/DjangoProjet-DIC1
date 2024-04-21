@@ -1,0 +1,170 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{% block title %}Title{% endblock title %}</title>
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+        
+        {% block style %}
+            
+        {% endblock style %}
+            
+    </head>
+    <body>
+        <header>
+            <div id="headertop">
+                <p>Bienvenue dans la boutique de commerce électronique en ligne DIC1 shop.</p>
+                <div>
+                    <address>
+                        Suivez-nous: 
+                        <div>
+                            <a href="#"><img src="{% static 'img/twitter.svg' %}" alt="logo twitter"></a>
+                            <a href="#"><img src="{% static 'img/faceb.svg' %}" alt="logo facebook"></a>
+                            <a href="#"><img src="{% static 'img/pinterest.svg' %}" alt="logo pinterest"></a>
+                            <a href="#"><img src="{% static 'img/reddit.svg' %}" alt="logo reddit"></i></a>
+                            <a href="#"><img src="{% static 'img/ytb.svg' %}" alt="logo youtube"></a>
+                            <a href="#"><img src="{% static 'img/insta.svg' %}" alt="logo instagram"></a>
+                        </div>
+                    </address>
+                    <div>
+                        <div class="select-container">
+                            <span class= "selected">Fra</span>
+                            <div class = "select-dropdown hidden">
+                                <span class = "option fr">Fra</span>
+                                <span class="option en">Eng</span>
+                            </div>
+                            <div class = "select-icon">
+                                <img src="{% static 'img/chevron-down.svg' %}" alt="logo chevron down">
+                            </div>
+                        </div>
+                        <div class="select-container">
+                            <span class= "selected">En USD</span>
+                            <div class = "select-dropdown hidden">
+                                <span class = "option usd">En USD</span>
+                                <span class = "option eur">En EUR</span>
+                            </div>
+                            <div class = "select-icon">
+                                <img src="{% static 'img/chevron-down.svg' %}" alt="logo chevron down">
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+            <div id="headermiddle">
+                <div>
+                    <img src="{% static 'img/logoWhite.svg' %}" alt="dic1 shop logo">
+                    <h1>Boutique de DIC1</h1>
+                </div>
+                
+                {% block searchInput %}
+                    <form role="search">
+                        <input type="search" placeholder="Recherchez un produit..." aria-label="Search">
+                        <button type="type">
+                            <img src="{% static 'img/searchIcon.svg' %}" alt="search icon">
+                        </button>
+                    </form>
+                {% endblock searchInput %}
+                    
+                <div>
+                    <a href="#"><img src="{% static 'img/cart-shop.svg' %}" alt="icon of cart-shopping"></a>
+                    <a href="#"><img src="{% static 'img/profile.svg' %}" alt="logo profile"></a>
+                </div>
+            </div>
+            <nav id="headerbottom">
+                <img src="{% static 'img/home.svg' %}" alt="logo home">
+                <a href = "#">Accueil.</a>
+            </nav>
+        </header>
+
+        <main>
+            {% block content %}
+               Main content 
+            {% endblock content %}    
+        </main>
+
+        <footer>
+            <div id = "footerTop">
+                <div>
+                    <div>
+                        <img src="{% static 'img/logoOrange.svg' %}" alt="dic1 shop logo">
+                        <h1>Boutique de DIC1</h1>
+                    </div>
+                    <ul>
+                        <li>Assistance client: <br> <span>775858575</span></li>
+                        <li>4517 Aloup Kagne. <br> Sénégal,Thies EPT</li>
+                        <li>ept@ept.sn</li>
+                    </ul> 
+                </div>
+                    
+                <div>
+                    <h3>Catégorie supérieure</h3>
+                    <ul>
+                        <li><a href="#">Ordinateur et ordinateur portable</a></li>
+                        <li><a href="#">Téléphone intelligent</a></li>
+                        <li><a href="#">casque de musique</a></li>
+                        <li><img src="{% static 'img/yellowDash.svg' %}" alt="yellow dash icon"><h4>Accessoires</h4></li>
+                        <li><a href="#">Appareil photo et photo</a></li>
+                        <li><a href="#">Télévision et maisons</a></li>
+                        <li><a href="#">Parcourir tous les produits <img src="{% static 'img/yellowArrow.svg' %}" alt="right directed arrow logo"></a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3>Liens rapides</h3>
+                    <ul>
+                        <li><a href="#">Acheter le produit</a></li>
+                        <li><a href="#">Panier</a></li>
+                        <li><a href="#">Liste de souhaits</a></li>
+                        <li><a href="#">comparateur</a></li>
+                        <li><a href="#">Suivi de commande</a></li>
+                        <li><a href="#">Aide client</a></li>
+                        <li><a href="#">À propos de nous</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3>Télécharger <br> l'application</h3>
+                    <div>
+                        <a href="#"><img src="{% static 'img/googleStore.svg' %}" alt="logo google play store"></a>
+                        <p>
+                            Obtenez le maintenant <br> <span>par Google</span>
+                        </p>
+                    </div>
+                    <div>
+                        <a href="#"><img src="{% static 'img/apple.svg' %}" alt="logo apple"></a>
+                        <p>
+                            Obtenez le maintenant <br> <span>Magasin d'applications</span>
+                        </p>
+                    </div>
+                </div>
+
+                <div>
+                    <h3>Balise populaire</h3>
+                    <div>
+                        <em>Jeu</em>
+                        <em>iPhone</em>
+                        <em>la télé</em>
+                        <em>Ordinateurs portables Asus</em>
+                        <em>MacBook</em>
+                        <em>SSD</em>
+                        <em>Carte graphique</em>
+                        <em>Banque de puissance</em>
+                        <em>Smart TV</em>
+                        <em>Conférencier</em>
+                        <em>Tablette</em>
+                        <em>Four micro onde</em>
+                        <em>Samsung</em>
+                    </div>
+                </div>
+            </div>
+            <div></div>
+        </footer>
+        <script src="{% static 'js/script.js' %}"></script>
+    </body>
+</html>
