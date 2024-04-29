@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block style %}
+    <link rel="stylesheet" href="{% static 'css/profil.css' %}">
+{% endblock style %}
+
+{% comment %} {% block nav %}
+<nav id="headerbottom">
+    <img src="{% static 'img/home.svg' %}" alt="logo home">
+    <a href = "#">Accueil.</a><span style="color: black;">></span>
+    <a href="#">profil utilisateur</a>
+</nav>
+{% endblock nav %} {% endcomment %}
+
+{% block content %}
+<div class="conteneur">
+    <div class="info">
+        <div class="info1">INFOCOMPTE</div>
+        <div class="info2">
+            <div class="info3">
+                <div class="cercle"></div>
+                <div class="info4">
+                    <p class="nom">Mouhamadou Diouf Cissé</p>
+                    <p class="add">Dakar, Sénégal</p>
+                </div>
+            </div>
+            <p class="info5"><span>E-mail: </span> <span>mouhamadoudc@ept.sn</span></p>
+            <p class="info5"><span>numéro de téléphone: </span> <span>+221778787874</span></p>
+            <p class="info5"><span>addresse: </span> <br> <span>East Tejturi Bazar, mot n° 04, route n° 
+                13/x, maison no. 1320/C, Appartement 
+                N°5D, Dhaka - 1200, Dakar</span></p>
+        </div>
+        <button class="mdf">MODIFIER LE COMPTE</button>
+    </div>
+
+    <div class="commandes">
+        <div class="commandea">
+            <img src="{% static 'img/fusee.svg' %}" alt="image commande">
+            <div class="commande1">
+                <p class="nbre">154</p>
+                <p class="descpt">commandes totales</p>
+            </div>
+        </div>
+        <div class="commandeb">
+            <img src="{% static 'img/paper.svg' %}" alt="image commande">
+            <div class="commande1">
+                <p class="nbre">05</p>
+                <p class="descpt">commandes en attente</p>
+            </div>
+        </div>
+        <div class="commandec">
+            <img src="{% static 'img/box.svg' %}" alt="image commande">
+            <div class="commande1">
+                <p class="nbre">149</p>
+                <p class="descpt">commandes terminées</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

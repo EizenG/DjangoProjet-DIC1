@@ -1,0 +1,21 @@
+center{
+    padding-top: 80px;
+    padding-bottom: 80px;
+}
+.para1 {
+    font-weight: 600;
+    font-size: 1.2em;
+    padding: 10px;
+
+}
+.para2 {
+    font-size: 0.8em;
+    padding: 10px;
+}
+button {
+    padding: 8px;
+    background-color: orange;
+    color: white;
+    border: orange;
+    margin: 10px;
+}

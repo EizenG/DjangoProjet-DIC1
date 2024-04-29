@@ -47,4 +47,7 @@ def register_view(request):
     
     return render(request,"registerNext.html",{"form":form,"form2":form2})
     
+
+def profile_views(request):
+    return render(request,"profilutil.html")
     

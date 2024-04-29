@@ -1,0 +1,84 @@
+.conteneur {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+.info {
+    border: 2px solid rgb(170, 161, 161);
+    width: 18%;
+    margin-right: 8px;
+}
+.info1{
+    padding: 12px;
+    font-weight: 600;
+    font-size: 0.8em;
+    
+}
+p span {
+    font-size: 0.8em;
+
+}
+.info2 {
+    border: 2px solid black;
+}
+.info3 {
+    display: flex;
+    justify-content: space-around;
+}
+.cercle {
+    background-color: grey;
+    width: 40px;
+    height: 40px;
+    clip-path: circle();
+}
+.info4 {
+    border: 2px solid black;
+}
+.nom{
+    font-weight: 600;
+}
+.add {
+    font-size: 13px;
+}
+.info5 {
+    border: 2px solid black;
+    padding: 8px;
+}
+.mdf {
+    border: solid 2px blue;
+    color: blue;
+    padding: 12px;
+    font-weight: 600;
+    background-color: white;
+    font-size: 0.8em;
+    display: block;
+    margin: auto;
+}
+
+.commandes {
+    border: 2px solid black;
+    width: 18%;
+    margin-left: 8px;
+}
+.commandea,.commandeb, .commandec {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border: 2px solid black;
+    padding: 10px;
+    margin-top: 15px;
+}
+.commandea {
+    background-color: rgb(86, 181, 237);
+    opacity: 0.5;
+}
+.commandeb {
+    background-color: rgb(224, 191, 71);
+    opacity: 0.5;
+}
+.commandec {
+    background-color: rgb(102, 205, 102);
+    opacity: 0.5;
+}

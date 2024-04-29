@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block style %}
+    <link rel="stylesheet" href="{% static 'css/stylevld.css' %}">
+{% endblock style %}
+
+{% comment %} {% block nav %}
+<nav id="headerbottom">
+    <img src="{% static 'img/home.svg' %}" alt="logo home">
+    <a href = "#">Accueil.</a><span style="color: black;">></span>
+    <a href="#">panier</a><span style="color: black;">></span>
+    <a href="#">valideur</a>
+</nav>
+{% endblock nav %} {% endcomment %}
+
+{% block content %}
+<center>
+    <div><img src="{% static 'img/icons8-check-24.png' %}" alt="icone vqlidqtion"></div>
+    <div>
+        <p class="para1">votre commande a été validée</p>
+        <p class="para2">
+            Pellentesque sed lectus nec tortor tristique accumsan quis <br>
+            dictum risus. Donec volutpat mollis nulla non facilisis.
+        </p>
+        <button class="one">Maison <img src="" alt=""></button><br>
+        <button class="two">Suivre le colis <img src="" alt=""></button>
+    </div>
+</center>
+{% endblock content %}   
