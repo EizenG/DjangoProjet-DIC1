@@ -1,5 +1,5 @@
 from django.db import models
-from django.contrib.auth.models import AbstractBaseUser,BaseUserManager,AbstractUser
+from django.contrib.auth.models import AbstractBaseUser,BaseUserManager,PermissionsMixin
 from django.utils.translation import gettext_lazy as _
 
 # Create your models here.
@@ -22,23 +22,33 @@ class CustomUserManager (BaseUserManager):
         user.save()
         return user
 
-class CustomUser (AbstractBaseUser):
-    is_superuser = models.BooleanField(_("Is super user"),default=False)
+class CustomUser (AbstractBaseUser, PermissionsMixin):
+
     is_staff = models.BooleanField(_("Is staff"),default=False)
     email = models.EmailField(verbose_name=_("Email"),unique = True)
-    secondEmail = models.EmailField(verbose_name=_("Secondary email"),null=True,blank=True)
+    secondEmail = models.EmailField(verbose_name=_("Secondary email"),null=True,blank=True,unique=True)
     first_name = models.CharField(verbose_name=_("Fisrt name"),null= False,blank=False,max_length=50)
     last_name = models.CharField(verbose_name=_("Last name"),null= False,blank=False,max_length=50)
     birth_date = models.DateField(verbose_name=_("Birth date"))
-    tel = models.CharField(verbose_name=_("Phone number"),max_length=9)
-    country = models.CharField(verbose_name=_("Country"),max_length=20)
-    region = models.CharField(verbose_name=_("Region"),max_length=20)
-    city = models.CharField(verbose_name=_("City"),max_length=20)
-    zipCode = models.IntegerField(verbose_name=_("Zip code"))
-    username = models.CharField(verbose_name=_("User name"),max_length=10)
+    tel = models.CharField(verbose_name=_("Phone number"),max_length=9,null = True,unique=True)
+    country = models.CharField(verbose_name=_("Country"),max_length=20, null=True)
+    region = models.CharField(verbose_name=_("Region"),max_length=20,null=True)
+    zipCode = models.IntegerField(verbose_name=_("Zip code"),null=True)
+    username = models.CharField(verbose_name=_("User name"),max_length=10,null = True)
+    address = models.CharField(verbose_name = _("Address"), max_length= 255,null = True)
     profileImage = models.ImageField(null=True,blank=True,upload_to="user/profileImages")
+    date_joined = models.DateTimeField(auto_now_add= True)
 
 
     objects = CustomUserManager()
     USERNAME_FIELD = "email"
-    REQUIRED_FIELDS = ["first_name","last_name"]
+    REQUIRED_FIELDS = ["first_name","last_name","birth_date"]
+
+    class Meta:
+        verbose_name = "User"
+        verbose_name_plural = "Users"
+        get_latest_by = "date_joined"
+
+    
+    def __str__(self) -> str:
+        return self.last_name + " " + self.first_name

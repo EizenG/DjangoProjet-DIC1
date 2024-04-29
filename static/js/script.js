@@ -27,6 +27,6 @@ for(let i = 0; i < selectContainer.length ; i++ ){
 }
 
 document.addEventListener("click",e =>{
-    if(!e.target.closest(".select-container"))
+    if(!e.target.closest(".select-container") && selectDropdowns[currentSelectIndex])
         selectDropdowns[currentSelectIndex].classList.add("hidden");
 });
