@@ -1,0 +1,48 @@
+{% extends 'registerSignIn.html' %}
+{% load static %}
+
+
+{% comment %}
+    I change the default form that is displayed at page loaded
+{% endcomment %}
+{% block signInH2Class %}{% endblock signInH2Class %}
+{% block registerH2Class %}class = "currentForm"{% endblock registerH2Class %}
+{% block registerFormClass %}{% endblock registerFormClass %}
+{% block signInFormClass %}class = "hidden"{% endblock signInFormClass %}
+
+
+{% comment %}
+    Define the rest of the necessary input to complete registration
+{% endcomment %}
+
+{% block registerForm %}
+    <div>
+        <label for="{{ form.password1.id_for_label}}">Mot de passe</label>
+        <div class = "passwordInput">
+            {{ form.password1 }}
+            <img src="{% static 'img/eye-regular.svg' %}" alt="eye slash icon">
+        </div>
+    </div>
+    <div>
+        <label for="{{ form.password2.id_for_label}}">Confirmer le mot de passe</label>
+        <div class = "passwordInput">
+            {{ form.password2 }}
+            <img src="{% static 'img/eye-regular.svg' %}" alt="eye slash icon">
+        </div>
+    </div>
+    <div id = "checkRuleDiv">
+        <label class = "container" for="useRule">
+            <input type="checkbox" name="useRule" id="useRule">
+            <span class = "checkmark"></span>
+            Êtes-vous d'accord avec les conditions d'utilisation 
+            et la politique de confidentialité ?.</label>
+    </div>
+    <button style="cursor : default;background-color: #fa8232a8;" disabled id = "btn_register" type="submit">s'inscrire <img src="{% static 'img/rightArrow.svg' %}" alt="icon fleche"></button>
+{% endblock registerForm %}
+
+<!--Script-->
+{% block script %}
+    <script src="{% static 'js/registerNext.js' %}"></script>
+{% endblock script %}
+    
+    

@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Accueil{% endblock title %}
+{% block content %}
+    <div id = 'formContainer'>
+        <div>
+            <h2 {% block signInH2Class %}class = "currentForm"{% endblock signInH2Class %}>Connexion</h2>
+            <h2 {% block registerH2Class %}{% endblock registerH2Class %}>Inscription</h2>
+        </div>
+        <!--Formulaire d'inscription -->
+        <form action="" method="post" {% block registerFormClass %}class = "hidden"{% endblock registerFormClass %}>
+            {% csrf_token %}
+            {% block registerForm %}
+                <div>
+                    <label for="{{ form.first_name.id_for_label}}">Prénom</label>
+                    {{ form.first_name }}
+                </div>
+                <div>
+                    <label for="{{ form.last_name.id_for_label}}">Nom</label>
+                    {{ form.last_name }}
+                </div>
+                <div>
+                    <label for="{{ form.birth_date.id_for_label}}">Date de naissance</label>
+                    {{ form.birth_date }}
+                </div>
+                <div>
+                    <label for="{{ form.email.id_for_label}}">Email</label>
+                    {{ form.email }}
+                </div>
+                <button type = "submit">Suivant <img src="{% static 'img/rightArrow.svg' %}" alt="icon fleche"></button>
+            {% endblock registerForm %}
+        </form>
+        <!-- Formulaire de connexion-->
+        <form action="" method="post" {% block signInFormClass %}{% endblock signInFormClass %}>
+            {% csrf_token %}
+            <div>
+                <label for="{{ form2.email.id_for_label}}">Email</label>
+                {{ form2.email }}
+            </div>
+            <div>
+                <label for="{{ form2.password.id_for_label}}">Mot de passe</label>
+                <div class = "passwordInput">
+                    {{ form2.password }}
+                    <img src="{% static 'img/eye-regular.svg' %}" alt="eye slash icon">
+                </div>
+            </div>
+            <button type="submit">CONNEXION <img src="{% static 'img/rightArrow.svg' %}" alt="icon fleche"></button>
+        </form>
+    </div>
+{% endblock content %}  
+
+<!--Style pour la page-->
+{% block style %}
+    <link rel="stylesheet" href='{% static "css/registerSignInStyle.css" %}'>
+{% endblock style %}
+
+<!--Script-->
+{% block script %}
+    <script src="{% static 'js/registerSignIn.js' %}"></script>
+{% endblock script %}
+    
