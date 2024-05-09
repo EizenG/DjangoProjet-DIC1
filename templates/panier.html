@@ -5,77 +5,77 @@
     <link rel="stylesheet" href="{% static 'css/stylepn.css' %}">
 {% endblock style %}
 
-{% comment %} {% block nav %}
-<nav id="headerbottom">
-    <img src="{% static 'img/home.svg' %}" alt="logo home">
-    <a href = "#">Accueil.</a><span style="color: black;">></span>
-    <a href="#">panier</a>
-</nav>
-{% endblock nav %} {% endcomment %}
-
 {% block content %}
 
 <div class="conteneur">
     
     <div class="panier">
-        <div class="panier1">Panier</div>
-        <div class="barre">
-            <p class="partie1">PRODUITS</p> 
-            <p class="partie2"><span>PRIX</span> <span>QUANTITE</span> <span>TOTAL</span> </p>
-        </div>
-        <div class="articles">
-            <div class="article">
-                <div class="produit">
-                    <img class="croix" src="{% static 'img/icons8-cancel-32.png' %}" alt="cancel">
-                    <img class="imgarticle" src="{% static 'img/Image_5.png' %}" alt="tv intelligent">
-                    <p class="descpt">Téléviseur intelligent LED 4K UHD avec <br>
+        <h2>Panier</h2>
+        <div id = "panier_grid">
+            <h5>PRODUITS</h5>
+            <h5>PRIX</h5>
+            <h5>QUANTITE</h5>
+            <h5>TOTAL</h5>
+            <div class="produit">
+                <img class="croix" src="{% static 'img/icons8-cancel-32.png' %}" alt="cancel">
+                <img class="imgarticle" src="{% static 'img/Image_5.png' %}" alt="tv intelligent">
+                <p class="descpt">Téléviseur intelligent LED 4K UHD avec <br>
                         Chromecast intégré</p>
-                </div>
-                <div class="caract">
-                    <p class="prix">70 $</p>
-                    <p class="compteur"><img src="{% static 'img/icons8-subtract-24.png' %}" alt="moins"> <span>01</span> <img src="{% static 'img/icons8-plus-24.png' %}" alt="plus"></p>
-                    <p class="total">70 $</p>
-                </div>
             </div>
-            <div class="article">
-                <div class="produit">
-                    <img class="croix" src="{% static 'img/icons8-cancel-32.png' %}" alt="cancel">
-                    <img class="imgarticle" src="{% static 'img/Image_8.png' %}" alt="tv intelligent">
-                    <p class="descpt">Téléviseur intelligent LED 4K UHD avec <br>
-                        Chromecast intégré</p>
-                </div>
-                <div class="caract">
-                    <p class="prix">70 $</p>
-                    <p class="compteur"><img src="{% static 'img/icons8-subtract-24.png' %}" alt="moins"> <span>01</span> <img src="{% static 'img/icons8-plus-24.png' %}" alt="plus"></p>
-                    <p class="total">70 $</p>
-                </div>
+            <span class="prix">1000 $</span>
+            <div class="compteur"><img class = "moins" src="{% static 'img/icons8-subtract-24.png' %}" alt="moins"> <span>01</span> <img class = "plus" src="{% static 'img/icons8-plus-24.png' %}" alt="plus"></div>
+            <span class="total">799 $</span>
+            <div class="produit">
+                <img class="croix" src="{% static 'img/icons8-cancel-32.png' %}" alt="cancel">
+                <img class="imgarticle" src="{% static 'img/Image_8.png' %}" alt="tv intelligent">
+                <p class="descpt">Téléviseur intelligent LED 4K UHD avec <br>
+                    Chromecast intégré</p>
             </div>
+            <span class="prix">70 $</span>
+            <div class="compteur"><img class = "moins" src="{% static 'img/icons8-subtract-24.png' %}" alt="moins"> <span>01</span> <img class = "plus" src="{% static 'img/icons8-plus-24.png' %}" alt="plus"></div>
+            <span class="total">70 $</span>
+            <div class="produit">
+                <img class="croix" src="{% static 'img/icons8-cancel-32.png' %}" alt="cancel">
+                <img class="imgarticle" src="{% static 'img/Image_8.png' %}" alt="tv intelligent">
+                <p class="descpt">Téléviseur intelligent LED 4K UHD avec <br>
+                    Chromecast intégré</p>
+            </div>
+            <span class="prix">70 $</span>
+            <div class="compteur"><img class = "moins" src="{% static 'img/icons8-subtract-24.png' %}" alt="moins"> <span>01</span> <img class = "plus" src="{% static 'img/icons8-plus-24.png' %}" alt="plus"></div>
+            <span class="total">70 $</span>
         </div>
-        <div class="one">
-            <p class="a"><img src="{% static 'img/icons8-left-24.png' %}" alt="fleche gauche">ACCEUIL</p>
-            <p class="b">VALIDER</p>
+        
+       <div class="one">
+            <button id = "home_btn" type = "button"><img src="{% static 'img/icons8-left-24.png' %}" alt="fleche gauche"><a href="{% url 'home' %}">ACCEUIL</a></button>
+            <button type = "button">VALIDER</button>
         </div>
     </div>
 
     <div class="totaux">
-        <div class="totaux1">Totaux</div>
+        <h2>Totaux</h2>
         <div class="tot">
-            <p>total</p>
-            <p>320 $</p>
+            <span>total</span>
+            <span>320 $</span>
         </div>
         <div class="tot">
-            <p>frais</p>
-            <p>16 $</p>
+            <span>frais</span>
+            <span>16 $</span>
         </div>
         <div class="tot">
-            <p>taxe</p>
-            <p>21,99 $</p>
+            <span>taxe</span>
+            <span>21,99 $</span>
         </div>
-        <div class="trait"></div>
+        <hr>
         <div class="total1">
-            <p>Total</p>
-            <p>357,99 $ USD</p>
+            <span>Total</span>
+            <span>357,99 $ USD</span>
         </div>
     </div>
 </div>
 {% endblock content %}
+
+{% comment %} Additionnal script {% endcomment %}
+
+{% block script %}
+    <script src="{% static 'js/panier.js' %}"></script>
+{% endblock script %}

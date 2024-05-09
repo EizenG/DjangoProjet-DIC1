@@ -65,7 +65,7 @@
                 {% block searchInput %}
                     <form role="search">
                         <input type="search" placeholder="Recherchez un produit..." aria-label="Search">
-                        <button type="type">
+                        <button type="button">
                             <img src="{% static 'img/searchIcon.svg' %}" alt="search icon">
                         </button>
                     </form>
@@ -73,12 +73,20 @@
                     
                 <div>
                     <a href="#"><img src="{% static 'img/cart-shop.svg' %}" alt="icon of cart-shopping"></a>
-                    <a href="#"><img src="{% static 'img/profile.svg' %}" alt="logo profile"></a>
+                    <div id = "profileDiv">
+                        <img data-user-profileIcon src="{% static 'img/profile.svg' %}" alt="logo profile">
+                        <div class = "hideUserNavCard userNavigationCard">
+                            <h2>Connection ou Inscription</h2>
+                            <div class = "wrapper">
+                                <a href="{% url 'user-signInRegister' %}" class = "customButton customButtonOne">Hey click moi !</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
             <nav id="headerbottom">
                 <img src="{% static 'img/home.svg' %}" alt="logo home">
-                <a href = "#">Accueil.</a>
+                <a href = "{% url 'home' %}">Accueil.</a>
             </nav>
         </header>
 

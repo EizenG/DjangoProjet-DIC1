@@ -1,6 +1,4 @@
-:root{
-    --orangeVariant : #fa8232;
-}
+@import url("--variables.css");
 
 .hidden{
     display: none;

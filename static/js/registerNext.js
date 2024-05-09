@@ -14,7 +14,7 @@ acceptUseConditionCheckBox.addEventListener("click", e =>{
         registerBtn.style.backgroundColor="#fa8232";
     }else {
         registerBtn.disabled=true;
-        registerBtn.style.cursor = "default";
+        registerBtn.style.cursor = "not-allowed";
         registerBtn.style.backgroundColor="#fa8232a8";
     }
 });
