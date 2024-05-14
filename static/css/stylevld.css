@@ -2,6 +2,9 @@ center{
     padding-top: 80px;
     padding-bottom: 80px;
 }
+img[alt="icone validation"] {
+    width: 4.5em;
+}
 .para1 {
     font-weight: 600;
     font-size: 1.2em;
@@ -13,9 +16,34 @@ center{
     padding: 10px;
 }
 button {
-    padding: 8px;
-    background-color: orange;
+    position: relative;
+    padding: 12px;
+    background-color: #FA8232;
     color: white;
-    border: orange;
-    margin: 10px;
+    border: #FA8232;
+    margin-top: 10px;
+    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    font-size: 0.8em;
+    border-radius: 3px;
+}
+
+button a{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+button img {
+    width: 1.3em;
+}
+.one {
+    min-width: 8%;
+}
+.two {
+    opacity: 0.5;
+    min-width: 11%;
 }

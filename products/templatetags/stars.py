@@ -19,3 +19,9 @@ def create_stars(value):
     return result
         
 register.filter("stars",create_stars)
+
+
+def multiply(value,arg):
+    return value * arg
+
+register.filter("fois",multiply)

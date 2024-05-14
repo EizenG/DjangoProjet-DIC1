@@ -24,7 +24,7 @@ registerH2.addEventListener( "click", (e) => {
     signInForm.classList.add( "hidden" );
     registerH2.classList.add("currentForm");
     signInH2.classList.remove("currentForm");
-    document.cookie = "type=register";
+    document.cookie = "type=register;path=/";
 });
 
 
@@ -33,7 +33,7 @@ signInH2.addEventListener( "click", (e) => {
     signInForm.classList.remove( "hidden" );
     registerH2.classList.remove("currentForm");
     signInH2.classList.add("currentForm");
-    document.cookie = "type=signIn";
+    document.cookie = "type=signIn;path=/";
 });
 
 passwordEyeIcons.forEach((elt,idx) => {

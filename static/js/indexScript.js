@@ -10,9 +10,10 @@ let transformStep = 0; // le pas de translation de productBtnContainer
 let i = 0 ; // Incremente ou decremente selon qu'on appuie sur previous ou next. Nous permet de controler quand est-ce qu'il faudra defiler les numeros ou bien non.
 let searchInput = document.querySelector("input[type='search'");
 let productsCard = productsCardContainer.children;
-
+let mainFirstDiv = document.querySelector("main > div:first-child"); // on utilise la taille de cet element pour gerer le scroll behavior lorsqu'on change de page de produit sur petit ecran
+let headerElt = document.querySelector('header'); // est utilise aussi pour gerer le scroll behavior sur petit ecran
 let productNotFoundSvgHtml = productsCardContainer.children.item(productsCard.length - 1).outerHTML;
-
+let categoriesButtons = document.querySelectorAll(".category_btn");
 
 
 /* FUNCTIONS FUNCTIONS */
@@ -34,7 +35,11 @@ function attachEventProductContainerChildren(){
                 })
                 .catch(error => alert("Oups! une erreur est survenu, veuillez reessayer."));
     
-                window.scrollTo({top: 0, behavior: 'smooth'});
+                if(document.documentElement.clientWidth <= 1036){
+                    window.scrollTo({top: (mainFirstDiv.offsetHeight + headerElt.offsetHeight + 40), behavior: 'smooth'});
+                }else{
+                    window.scrollTo({top: 0, behavior: 'smooth'});
+                }
             }
         });
     });
@@ -88,7 +93,9 @@ categoriesCheckBoxs.forEach(elt =>{
         if(currentCategory != num_cat){
             categoriesCheckBoxs[currentCategory].children[0].checked = false;
             elt.children[0].checked = true;
+            categoriesButtons[currentCategory].classList.remove("selectedCategory");
             currentCategory = num_cat;
+            categoriesButtons[currentCategory].classList.add("selectedCategory");
 
             // generateHtml a ete defini un peu plus bas
             fetch(`http://127.0.0.1:8000/shop/products/data/${currentCategory}/${1}`)
@@ -118,7 +125,11 @@ categoriesCheckBoxs.forEach(elt =>{
             })
             .catch(error => alert("Oups! une erreur est survenu, veuillez reessayer." + error));
 
-            window.scrollTo({top: 0, behavior: 'smooth'});
+            if(document.documentElement.clientWidth <= 1036){
+                window.scrollTo({top: (mainFirstDiv.offsetHeight + headerElt.offsetHeight + 40), behavior: 'smooth'});
+            }else{
+                window.scrollTo({top: 0, behavior: 'smooth'});
+            }
         }
     });
 });

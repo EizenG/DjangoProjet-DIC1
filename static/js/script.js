@@ -10,6 +10,8 @@ let header = document.querySelector("header");
 let main = document.querySelector("main");
 main.style.minHeight = `${window.innerHeight - footer.offsetHeight - header.offsetHeight}px`;
 
+document.cookie = "type=signIn;path=/"; // cookie servant dans les fonctionnalite d'authentification
+
 logoProfile.addEventListener("click", e =>{
     if(userNavCard.classList.contains("hideUserNavCard")){
         userNavCard.classList.remove("hideUserNavCard");

@@ -24,7 +24,7 @@
                         <input {% if id_cat == 0 %}checked{% endif %} type="radio" name="category" id="id_cat_{{ id_cat }}" value = "{{ id_cat }}">
                         <span class="checkmark"></span>
                     </label>
-                    <button class = "category_btn" type="button"> {{ category }}</button>
+                    <button {% if id_cat == 0 %}class = "category_btn selectedCategory" {% else %}class = "category_btn"{% endif %} class = "category_btn" type="button"> {{ category }}</button>
                 </div>
             {% endfor %}     
         </div>
@@ -34,7 +34,12 @@
            
            {% for product in products  %}
                 <div class = "productCard">
-                    <img src="{{ product.images.0 }}" alt="images du produit">
+                    <div class ="productImgContainer" >
+                        <img src="{{ product.images.0 }}" alt="images du produit">
+                        <div class = "onProductHover">
+                            <a href="/produit/detail/{{ product.product_information.ASIN }}"><img src="{% static 'img/caddy.svg' %}" alt="icon caddy"></a>
+                        </div>
+                    </div>
                     <div class = "starts"> 
                         {% for i in product.average_rating|stars %}
                             <i class = "{{ i }}" ></i>

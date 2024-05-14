@@ -2,6 +2,7 @@
 {% load static %}
 
 
+{% block title %}Register Next{% endblock title %}
 {% comment %}
     I change the default form that is displayed at page loaded
 {% endcomment %}
@@ -16,6 +17,13 @@
 {% endcomment %}
 
 {% block registerForm %}
+    {% for field in form %}
+        {% for error in field.errors %}
+            <div class="alert alert-danger" role="alert">
+                {{ error }}
+            </div>
+        {% endfor %}
+    {% endfor %}
     <div>
         <label for="{{ form.password1.id_for_label}}">Mot de passe</label>
         <div class = "passwordInput">
@@ -44,5 +52,14 @@
 {% block script %}
     <script src="{% static 'js/registerNext.js' %}"></script>
 {% endblock script %}
-    
+
+{% block searchInput %} {% endblock searchInput %}
+
+{% block nav %}
+    <nav id="headerbottom">
+        <img src="{% static 'img/home.svg' %}" alt="logo home">
+        <a href = "{% url 'home' %}">Accueil.</a><span style="color: grey;">></span>
+        <a href="#" style="color: rgb(70, 91, 226);">une inscription</a>
+    </nav>
+{% endblock nav %}
     
