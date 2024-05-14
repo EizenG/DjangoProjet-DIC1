@@ -10,12 +10,18 @@ h2{
     font-weight: 500;
     padding: 15px 20px;
 }
+
+#userMessage{
+    width: 70vw;
+    margin: 10px auto;
+}
 .conteneur {
     display: flex;
     justify-content:center;
     align-items: flex-start;
     padding: 150px 0;
     color: #191C1F;
+    margin: 0 10px;
 }
 .panier {
     margin-right: 0.5em;
@@ -85,6 +91,7 @@ h5:nth-child(2){
 .croix {
     width: 24px;
     height: 24px;
+    cursor: pointer;
 }
 
 img[alt="plus"], img[alt="moins"] {

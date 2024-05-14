@@ -72,22 +72,48 @@
                 {% endblock searchInput %}
                     
                 <div>
-                    <a href="#"><img src="{% static 'img/cart-shop.svg' %}" alt="icon of cart-shopping"></a>
-                    <div id = "profileDiv">
-                        <img data-user-profileIcon src="{% static 'img/profile.svg' %}" alt="logo profile">
-                        <div class = "hideUserNavCard userNavigationCard">
-                            <h2>Connection ou Inscription</h2>
-                            <div class = "wrapper">
-                                <a href="{% url 'user-signInRegister' %}" class = "customButton customButtonOne">Hey click moi !</a>
+                    <a href="{% url 'panier' %}"><img src="{% static 'img/cart-shop.svg' %}" alt="icon of cart-shopping"></a>
+                    {% if request.user.is_authenticated %}
+                        <div id = "profileDiv">
+                            <img data-user-profileIcon src="{% static 'img/profile.svg' %}" alt="logo profile">
+                            <div class = "hideUserNavCard userNavigationCard">
+                                
+                                {% if request.user.username %}
+                                    <h2>Bienvenue {{ request.user.username }}</h2>
+                                {% else %}
+                                    <h2>Bienvenue...</h2>
+                                {% endif %}
+                                    
+                                <div class = "wrapper">
+                                    <a href="{% url 'params' %}" class = "customButton customButtonOne">Paramètre</a>
+                                </div>
+                                <div class = "wrapper wrapperV2">
+                                    <a href="{% url 'profile' %}" class = "customButton customButtonOne">Profile</a>
+                                </div>
+                                <div class = "wrapper wrapperV2">
+                                    <a href="{% url 'logout' %}" class = "customButton customButtonOne">Se déconnecter !</a>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    {% else %}
+                        <div id = "profileDiv">
+                            <img data-user-profileIcon src="{% static 'img/profile.svg' %}" alt="logo profile">
+                            <div class = "hideUserNavCard userNavigationCard">
+                                <h2>Connexion ou Inscription</h2>
+                                <div class = "wrapper">
+                                    <a href="{% url 'user-signInRegister' %}" class = "customButton customButtonOne">Hey click moi !</a>
+                                </div>
+                            </div>
+                        </div>
+                    {% endif %}
                 </div>
             </div>
-            <nav id="headerbottom">
-                <img src="{% static 'img/home.svg' %}" alt="logo home">
-                <a href = "{% url 'home' %}">Accueil.</a>
-            </nav>
+            {% block nav %}
+                <nav id="headerbottom">
+                    <img src="{% static 'img/home.svg' %}" alt="logo home">
+                    <a href = "{% url 'home' %}">Accueil.</a>
+                </nav>
+            {% endblock nav %}
         </header>
 
         <main>
